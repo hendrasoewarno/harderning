@@ -24,6 +24,7 @@ If IsArray(arrSubkeys) Then
 		'ini untuk disable run from File Explorer, tidak efektif kalau user mengaktifkan dari CMD
 		'Computer\HKEY_USERS\S-1-5-21-1521604063-934003188-285078316-1001\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun
 		oReg.CreateKey HKEY_USERS, strSubkey & "\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer"
+		oReg.SetDWORDValue HKEY_USERS, strSubkey & "\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer", "DisallowRun", 1
 		oReg.CreateKey HKEY_USERS, strSubkey & "\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun"
 		oReg.SetStringValue HKEY_USERS, strSubkey & "\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun", "1", "powershell.exe"
 		oReg.SetStringValue HKEY_USERS, strSubkey & "\Software\Microsoft\Windows\CurrentVersion\Policies\Explorer\DisallowRun", "2", "powershell_ise.exe"
